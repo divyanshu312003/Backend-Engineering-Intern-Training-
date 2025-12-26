@@ -16,12 +16,12 @@ public class Show {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+@ManyToOne(fetch = FetchType.LAZY, optional = false)
+private Event event;
 
-    @ManyToOne(optional = false)
-    private Event event;
+@ManyToOne(fetch = FetchType.LAZY, optional = false)
+private Venue venue;
 
-    @ManyToOne(optional = false)
-    private Venue venue;
 
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -36,4 +36,40 @@ public class Show {
     }
 
     public Long getId() { return id; }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
 }
