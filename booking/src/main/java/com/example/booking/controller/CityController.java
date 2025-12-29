@@ -19,13 +19,12 @@ public class CityController {
     }
 
     @PostMapping
-    public City createCity(@Valid @RequestBody CityRequest request) {
+    public City create(@Valid @RequestBody CityRequest request) {
         return service.createCity(request.getName());
     }
 
     @GetMapping
-    public List<City> getCities() {
+    public List<City> list() {
         return service.getAllCities();
     }
 }
-
